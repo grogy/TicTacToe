@@ -1,19 +1,17 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package tictactoe;
 
-/**
- *
- * @author vaclav
- */
+import javax.swing.SwingUtilities;
+import tictactoe.GUI.Window;
+
 public class TicTacToe {
 
-	/**
-	 * @param args the command line arguments
-	 */
 	public static void main(String[] args) {
-		// TODO code application logic here
+		SwingUtilities.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				Window w = new Window();
+				w.setVisible(true);
+			}
+		});
 	}
 }
