@@ -12,9 +12,7 @@ public class Window extends JFrame {
 		this.area = area;
 		
 		initUI();
-
 		JPanel panel = createPanel();
-
 		generateGameArea(panel);
 	}
 
@@ -29,13 +27,13 @@ public class Window extends JFrame {
 
 	private void generateGameArea(JPanel panel)
 	{
-		int w = 25;
+		int size = 25;
 		int countItems = 20;
 
 		for (int i = 0; i < countItems; i++) {
 			for (int j = 0; j < countItems; j++) {
 				JButton button = new JButton();
-				button.setBounds(i * w, j * w, w, w);
+				button.setBounds(i * size, j * size, size, size);
 				panel.add(button);
 			}
 		}
