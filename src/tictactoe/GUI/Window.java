@@ -18,8 +18,10 @@ public class Window extends JFrame {
 
 	private void initUI()
 	{
+		int buttonSize = 25;
+		
 		setTitle("TicTacToe");
-		setSize(500, 500);
+		setSize(area.getSize() * buttonSize, area.getSize() * buttonSize);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -27,13 +29,12 @@ public class Window extends JFrame {
 
 	private void generateGameArea(JPanel panel)
 	{
-		int size = 25;
-		int countItems = 20;
+		int buttonSize = 25;
 
-		for (int i = 0; i < countItems; i++) {
-			for (int j = 0; j < countItems; j++) {
+		for (int i = 0; i < area.getSize(); i++) {
+			for (int j = 0; j < area.getSize(); j++) {
 				JButton button = new JButton();
-				button.setBounds(i * size, j * size, size, size);
+				button.setBounds(i * buttonSize, j * buttonSize, buttonSize, buttonSize);
 				panel.add(button);
 			}
 		}
@@ -41,8 +42,10 @@ public class Window extends JFrame {
 
 	private JPanel createPanel()
 	{
+		int buttonSize = 25;
+
 		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 500, 500);
+		panel.setBounds(0, 0, area.getSize() * buttonSize, area.getSize() * buttonSize);
 		panel.setLayout(null);
 
 		getContentPane().add(panel);

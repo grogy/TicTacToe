@@ -21,4 +21,9 @@ public class GameArea {
 			}
 		}
 	}
+	
+	public int getSize()
+	{
+		return size;
+	}
 }
