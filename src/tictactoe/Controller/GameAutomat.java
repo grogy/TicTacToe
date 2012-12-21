@@ -2,6 +2,7 @@ package tictactoe.Controller;
 
 import javax.swing.SwingUtilities;
 import tictactoe.GUI.Window;
+import tictactoe.Model.GameArea;
 
 public class GameAutomat {
 	private StateApplication state = StateApplication.START;
@@ -22,7 +23,8 @@ public class GameAutomat {
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				guiWindow = new Window();
+				GameArea area = new GameArea(10);
+				guiWindow = new Window(area);
 				guiWindow.setVisible(true);
 			}
 		});
