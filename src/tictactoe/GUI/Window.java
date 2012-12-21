@@ -7,6 +7,8 @@ import tictactoe.Model.GameArea;
 
 public class Window extends JFrame {
 	private GameArea area;
+	
+	private int buttonSize = 25;
 
 	public Window(GameArea area) {
 		this.area = area;
@@ -18,8 +20,6 @@ public class Window extends JFrame {
 
 	private void initUI()
 	{
-		int buttonSize = 25;
-		
 		setTitle("TicTacToe");
 		setSize(area.getSize() * buttonSize, area.getSize() * buttonSize);
 		setLocationRelativeTo(null);
@@ -29,8 +29,6 @@ public class Window extends JFrame {
 
 	private void generateGameArea(JPanel panel)
 	{
-		int buttonSize = 25;
-
 		for (int i = 0; i < area.getSize(); i++) {
 			for (int j = 0; j < area.getSize(); j++) {
 				JButton button = new JButton();
@@ -42,8 +40,6 @@ public class Window extends JFrame {
 
 	private JPanel createPanel()
 	{
-		int buttonSize = 25;
-
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 0, area.getSize() * buttonSize, area.getSize() * buttonSize);
 		panel.setLayout(null);
