@@ -5,6 +5,8 @@ import tictactoe.GUI.Window;
 
 public class GameAutomat {
 	private StateApplication state = StateApplication.START;
+	
+	private Window guiWindow;
 
 	public void run() {
 		switch (state) {
@@ -20,8 +22,8 @@ public class GameAutomat {
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				Window w = new Window();
-				w.setVisible(true);
+				guiWindow = new Window();
+				guiWindow.setVisible(true);
 			}
 		});
 	}
