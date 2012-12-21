@@ -7,6 +7,16 @@ public class GameAutomat {
 	private StateApplication state = StateApplication.START;
 
 	public void run() {
+		switch (state) {
+			case START:
+				createWindow();
+				state = StateApplication.PLAY_X;
+				break;
+		}
+	}
+	
+	private void createWindow()
+	{
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
