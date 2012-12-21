@@ -1,6 +1,7 @@
 package tictactoe.Controller;
 
 import javax.swing.SwingUtilities;
+import tictactoe.TicTacToe;
 import tictactoe.GUI.Window;
 import tictactoe.Model.GameArea;
 
@@ -23,7 +24,7 @@ public class GameAutomat {
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				GameArea area = new GameArea(10);
+				GameArea area = new GameArea(TicTacToe.sizeGame);
 				guiWindow = new Window(area);
 				guiWindow.setVisible(true);
 			}

@@ -3,15 +3,17 @@ package tictactoe.GUI;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import tictactoe.TicTacToe;
 import tictactoe.Model.GameArea;
 
 public class Window extends JFrame {
 	private GameArea area;
 	
-	private int buttonSize = 25;
+	private int buttonSize;
 
 	public Window(GameArea area) {
 		this.area = area;
+		buttonSize = TicTacToe.buttonSize;
 		
 		initUI();
 		JPanel panel = createPanel();
