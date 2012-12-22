@@ -10,14 +10,16 @@ public class Window extends JFrame {
 	private GameArea area;
 	
 	private int buttonSize;
+	
+	private JPanel panel;
 
 	public Window(GameArea area) {
 		this.area = area;
 		buttonSize = TicTacToe.buttonSize;
 		
 		initUI();
-		JPanel panel = createPanel();
-		generateGameArea(panel);
+		createPanel();
+		generateGameArea();
 	}
 
 	private void initUI()
@@ -29,7 +31,7 @@ public class Window extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 
-	private void generateGameArea(JPanel panel)
+	private void generateGameArea()
 	{
 		for (int i = 0; i < area.getSize(); i++) {
 			for (int j = 0; j < area.getSize(); j++) {
@@ -40,14 +42,12 @@ public class Window extends JFrame {
 		}
 	}
 
-	private JPanel createPanel()
+	private void createPanel()
 	{
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		panel.setBounds(0, 0, area.getSize() * buttonSize, area.getSize() * buttonSize);
 		panel.setLayout(null);
 
 		getContentPane().add(panel);
-
-		return panel;
 	}
 }
