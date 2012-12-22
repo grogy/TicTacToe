@@ -5,8 +5,11 @@ public class GameArea {
 	
 	private StateArray[][] area;
 	
+	private Player actualPlayer;
+	
 	public GameArea(int size) {
 		this.size = size;
+		actualPlayer = Player.X;
 		
 		inicialeArea();
 	}
