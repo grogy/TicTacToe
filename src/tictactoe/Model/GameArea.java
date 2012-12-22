@@ -29,4 +29,39 @@ public class GameArea {
 	{
 		return size;
 	}
+	
+	public boolean setArea(int x, int y)
+	{
+		if (area[x][y] != StateArray.NONE)
+			return false;
+		
+		switch (actualPlayer) {
+			case O:
+				area[x][y] = StateArray.O;
+				break;
+			case X:
+				area[x][y] = StateArray.X;
+				break;
+		}
+		return true;
+	}
+	
+	public String getCharOfArea(int x, int y)
+	{
+		switch (actualPlayer) {
+			case O:
+				return "O";
+			case X:
+				return "X";
+		}
+		return "";
+	}
+	
+	public void changePlayer()
+	{
+		if (actualPlayer == Player.O)
+			actualPlayer = Player.X;
+		else
+			actualPlayer = Player.O;
+	}
 }

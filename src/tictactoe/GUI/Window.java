@@ -1,5 +1,7 @@
 package tictactoe.GUI;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -37,6 +39,26 @@ public class Window extends JFrame {
 			for (int j = 0; j < area.getSize(); j++) {
 				JButton button = new JButton();
 				button.setBounds(i * buttonSize, j * buttonSize, buttonSize, buttonSize);
+				button.putClientProperty("i", i);
+				button.putClientProperty("j", j);
+				button.addActionListener(new ActionListener() {
+					private int i;
+					
+					private int j;
+					
+					private JButton button;
+					
+					public void actionPerformed(ActionEvent evt) {
+						button = (JButton) evt.getSource();
+						i = (Integer) button.getClientProperty("i");
+						j = (Integer) button.getClientProperty("j");
+						
+						if (area.setArea(i, j)) {
+							button.setText(area.getCharOfArea(i, i));
+							area.changePlayer();
+						}
+					}
+				});
 				panel.add(button);
 			}
 		}
