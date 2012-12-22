@@ -15,8 +15,8 @@ public class Window extends JFrame {
 	
 	private JPanel panel;
 
-	public Window(GameArea area) {
-		this.area = area;
+	public Window(GameArea gameArea) {
+		area = gameArea;
 		buttonSize = TicTacToe.buttonSize;
 		
 		initUI();
@@ -26,8 +26,11 @@ public class Window extends JFrame {
 
 	private void initUI()
 	{
-		setTitle("TicTacToe");
-		setSize(area.getSize() * buttonSize, area.getSize() * buttonSize);
+		int width = area.getSize() * buttonSize;
+		int height = width;
+		
+		setTitle(tictactoe.TicTacToe.title);
+		setSize(width, height);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -35,26 +38,26 @@ public class Window extends JFrame {
 
 	private void generateGameArea()
 	{
-		for (int i = 0; i < area.getSize(); i++) {
-			for (int j = 0; j < area.getSize(); j++) {
+		for (int x = 0; x < area.getSize(); x++) {
+			for (int y = 0; y < area.getSize(); y++) {
 				JButton button = new JButton();
-				button.setBounds(i * buttonSize, j * buttonSize, buttonSize, buttonSize);
-				button.putClientProperty("i", i);
-				button.putClientProperty("j", j);
+				button.setBounds(x * buttonSize, y * buttonSize, buttonSize, buttonSize);
+				button.putClientProperty("x", x);
+				button.putClientProperty("y", y);
 				button.addActionListener(new ActionListener() {
-					private int i;
+					private int x;
 					
-					private int j;
+					private int y;
 					
 					private JButton button;
 					
 					public void actionPerformed(ActionEvent evt) {
 						button = (JButton) evt.getSource();
-						i = (Integer) button.getClientProperty("i");
-						j = (Integer) button.getClientProperty("j");
+						x = (Integer) button.getClientProperty("x");
+						y = (Integer) button.getClientProperty("y");
 						
-						if (area.setArea(i, j)) {
-							button.setText(area.getCharOfArea(i, i));
+						if (area.setArea(x, y)) {
+							button.setText(area.getCharOfArea(x, x));
 							area.changePlayer();
 						}
 					}
@@ -66,8 +69,11 @@ public class Window extends JFrame {
 
 	private void createPanel()
 	{
+		int width = area.getSize() * buttonSize;
+		int height = width;
+		
 		panel = new JPanel();
-		panel.setBounds(0, 0, area.getSize() * buttonSize, area.getSize() * buttonSize);
+		panel.setBounds(0, 0, width, height);
 		panel.setLayout(null);
 
 		getContentPane().add(panel);

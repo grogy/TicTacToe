@@ -18,9 +18,9 @@ public class GameArea {
 	{
 		area = new StateArray[size][size];
 
-		for (int i = 0; i < size; i++) {
-			for (int j = 0; j < size; j++) {
-				area[i][j] = StateArray.NONE;
+		for (int x = 0; x < size; x++) {
+			for (int y = 0; y < size; y++) {
+				area[x][y] = StateArray.NONE;
 			}
 		}
 	}
