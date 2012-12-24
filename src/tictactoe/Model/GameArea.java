@@ -64,4 +64,9 @@ public class GameArea {
 		else
 			actualPlayer = Player.O;
 	}
+	
+	public StateArray getState(int x, int y)
+	{
+		return area[x][y];
+	}
 }
